@@ -7,8 +7,7 @@ export default function PhotoPage({
 }: {
   params: { id: string }
 }) {
-  const photo: Photo = photos.find(p => p.id === id)
-  if (photo === undefined) return null
+  const photo: Photo = photos.find(p => p.id === id)!
 
   return (
     <section className='py-24'>
