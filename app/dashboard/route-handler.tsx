@@ -8,8 +8,8 @@ export default async function Sample() {
     }
 
     // display data from route handler
-    // const data = await getData()
-    // console.log(data);
+    const data = await getData()
+    console.log(data);
 
     // const renderNode = (obj: Object) => {
     //     return Object.entries(obj).map(([key, value]) => {
