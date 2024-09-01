@@ -10,7 +10,7 @@ export default async function Sample() {
     // display data from route handler
     const data = await getData()
 
-    const renderNode = (obj) => {
+    const renderNode = (obj: Object) => {
         return Object.entries(obj).map(([key, value]) => {
             if (typeof value === 'object') {
                 return (
