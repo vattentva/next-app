@@ -1,14 +1,12 @@
 import { Suspense } from "react";
-import Links from "../nav-links";
 import Posts from "./data-fetch";
+import Sample from "./route-handler";
 
 export default async function Page() {
     return (
-        <section>
-            <Suspense fallback={<p>loading feed...</p>}>
-                <Posts />
-            </Suspense>
-            <Links />
-        </section>
+        <Suspense fallback={<p>loading feed...</p>}>
+            <Sample />
+            {/* <Posts /> */}
+        </Suspense>
     )
   }
