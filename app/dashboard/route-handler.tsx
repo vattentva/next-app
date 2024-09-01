@@ -1,7 +1,7 @@
 export default async function Sample() {
     // data fetch from route handler by /api/sample?user=admin
     async function getData() {
-        const host = process.env.NEXT_PUBLIC_BASE_URL || ''
+        const host = process.env.APP_BASE_URL || ''
         const path = '/api/sample?user=admin'
         const response = await fetch(host + path)
         return await response.json()
