@@ -28,7 +28,7 @@ export default async function Sample() {
 
     return  (
         <div className="flex flex-col">
-            {/* <p>{JSON.stringify(data)}</p> */}
+            <p>{JSON.stringify(data)}</p>
             {/* {renderNode(data)} */}
             TEST
         </div>
