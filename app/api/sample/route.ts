@@ -1,13 +1,4 @@
-export type UserInfo = {
-    request: {
-        origin: string,
-        pathname: string,
-        search: string,
-    },
-    method: string,
-    userAgent: string,
-    currentTime: string,
-}
+import { UserInfo } from "@/domain/models/Sample";
 
 function getInfo(request: Request): UserInfo {
     const { origin, pathname, search, searchParams } = new URL(request.url);
