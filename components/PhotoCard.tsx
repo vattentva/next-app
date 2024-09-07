@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import { Photo } from '@/lib/photos'
+import Image from 'next/image';
+import { Photo } from '@/lib/photos';
 
 export default function PhotoCard({ photo }: { photo: Photo }) {
   return (
@@ -17,5 +17,5 @@ export default function PhotoCard({ photo }: { photo: Photo }) {
         <p className='text-sm text-gray-500'>Taken by {photo.username}</p>
       </div>
     </>
-  )
+  );
 }

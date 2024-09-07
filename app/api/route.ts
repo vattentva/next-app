@@ -2,5 +2,5 @@
 // export const dynamic = 'force-dynamic' // defaults to auto
 
 export async function GET(request: Request): Promise<Response> {    
-    return Response.json({ status: 200 });
+  return Response.json({ status: 200 });
 }

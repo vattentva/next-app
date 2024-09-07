@@ -42,6 +42,6 @@ const photos: Photo[] = [
     username: '@saminacodes',
     imageSrc: 'https://pbs.twimg.com/media/FFn7X76VgAEVTgs?format=jpg'
   },
-]
+];
 
-export default photos
+export default photos;

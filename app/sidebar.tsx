@@ -1,15 +1,14 @@
-'use client'
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Sidebar() {
-  const pathname = usePathname() // returns "/dashboard" on /dashboard?foo=bar
+  const pathname = usePathname(); // returns "/dashboard" on /dashboard?foo=bar
   const links = [
     { href: '/', label: 'Home' },
     { href: '/dashboard', label: 'Dashboard' },
     { href: '/article', label: 'Article' },
-    { href: '/photos', label: 'Photos' },
   ];
 
   return (
@@ -26,5 +25,5 @@ export default function Sidebar() {
         ))}
       </nav>
     </aside>
-  )
+  );
 }

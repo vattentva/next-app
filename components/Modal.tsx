@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { Fragment } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { useRouter } from 'next/navigation'
+import { Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import { useRouter } from 'next/navigation';
 
 export default function Modal({ children }: { children: React.ReactNode }) {
-  const router = useRouter()
-  const handleClose = () => router.back()
+  const router = useRouter();
+  const handleClose = () => router.back();
 
   return (
     <Transition.Root show={true} as={Fragment}>
@@ -42,5 +42,5 @@ export default function Modal({ children }: { children: React.ReactNode }) {
         </div>
       </Dialog>
     </Transition.Root>
-  )
+  );
 }
