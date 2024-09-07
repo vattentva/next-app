@@ -1,6 +1,7 @@
-// https://ja.next-community-docs.dev/docs/app-router/building-your-application/routing/route-handlers
-// export const dynamic = 'force-dynamic' // defaults to auto
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: Request): Promise<Response> {    
-  return Response.json({ status: 200 });
+// https://ja.next-community-docs.dev/docs/app-router/building-your-application/routing/route-handlers
+
+export async function GET(request: NextRequest) {
+  return NextResponse.json({ status: 200 });
 }
