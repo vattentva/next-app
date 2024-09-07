@@ -6,7 +6,7 @@ export const fetchSampleData = async (): Promise<UserInfo> => {
   const PATH = API_ENDPOINTS.SAMPLE;
   const response = await fetch(HOST + PATH + '?foo=bar&hoge=123', {
     headers: {
-      api_token: process.env.APP_API_TOKEN,
+      api_token: process.env.APP_API_TOKEN || '',
     }
   });
   if (!response.ok) {
