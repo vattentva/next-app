@@ -4,6 +4,7 @@ import { getSampleData } from '@/infrastructure/api/getSampleData';
 export async function SampleData() {
   // display data from route handler
   const data: UserInfo = await getSampleData();
+  console.log('🚀 ~ SampleData ~ data:', data);
 
   return  (
     <>

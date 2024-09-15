@@ -16,7 +16,9 @@ export function getConfig(): {
   };
 }
 
-export async function getApi<T>(path: string): Promise<T> {  
+export async function getApi<T>(path: string): Promise<T> {
+  console.log(getUrl(path), getConfig());
+  
   return await fetch(getUrl(path), getConfig())
     .then<T>(response => response.json());
 }
