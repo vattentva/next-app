@@ -1,6 +1,7 @@
 import { UserInfo } from '@/domain/models/Sample';
-import { fetchSampleData } from '@/infrastructure/repositories/sampleApi';
+import { getApi } from '../repositories/BaseApi';
+import { API_PATH } from '@/shared/constants/Constants';
 
-export const getSampleData = async (): Promise<UserInfo> => {
-  return await fetchSampleData();
+export async function getSampleData(): Promise<UserInfo> {
+  return await getApi<UserInfo>(API_PATH.SAMPLE);
 };

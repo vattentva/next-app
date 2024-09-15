@@ -1,6 +1,7 @@
-import { query } from '@/infrastructure/repositories/inferenceApi';
+import { getClassificationData } from '@/infrastructure/api/getClassificationData';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: Request): Promise<Response> {
-  const res = await query();
-  return Response.json(res);
+export async function GET(request: NextRequest): Promise<Response> {
+  const res = await getClassificationData();
+  return NextResponse.json(res);
 }

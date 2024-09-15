@@ -21,8 +21,6 @@ export function middleware(request: NextRequest) {
 function handleApiRoute(request: NextRequest) {
   // API ルートの処理
   const authHeader = request.headers.get('api_token');
-  // console.log(request.headers);
-  console.log(authHeader);
   if (!authHeader || authHeader !== process.env.APP_API_TOKEN) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
   }
