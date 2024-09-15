@@ -26,7 +26,14 @@ function handleApiRoute(request: NextRequest) {
   console.log(process.env.APP_API_TOKEN);
 
   if (!authHeader || authHeader !== process.env.APP_API_TOKEN) {
-    return NextResponse.json(unauthorized, { status: 401 });
+    return NextResponse.json(unauthorized, {
+      status: 401,
+      headers: {
+        'Cache-Control': 'no-store',
+        'CDN-Cache-Control': 'no-store',
+        'Vercel-CDN-Cache-Control': 'no-store'
+      },
+    });
   }
 }
 
