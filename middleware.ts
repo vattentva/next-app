@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { unauthorized } from './shared/types/httpResponse';
 
 // https://ja.next-community-docs.dev/docs/app-router/building-your-application/routing/middleware
 export function middleware(request: NextRequest) {
@@ -21,8 +22,11 @@ export function middleware(request: NextRequest) {
 function handleApiRoute(request: NextRequest) {
   // API ルートの処理
   const authHeader = request.headers.get('api_token');
+  console.log('🚀 ~ handleApiRoute ~ authHeader:', authHeader);
+  console.log(process.env.APP_API_TOKEN);
+
   if (!authHeader || authHeader !== process.env.APP_API_TOKEN) {
-    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json(unauthorized, { status: 401 });
   }
 }
 

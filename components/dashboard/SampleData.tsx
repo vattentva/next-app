@@ -1,10 +1,13 @@
 import { UserInfo } from '@/domain/models/Sample';
 import { getSampleData } from '@/infrastructure/api/getSampleData';
+import { ErrorResponse, isErrorResponse } from '@/shared/types/httpResponse';
 
 export async function SampleData() {
-  // display data from route handler
-  const data: UserInfo = await getSampleData();
+  const data: UserInfo|ErrorResponse = await getSampleData();
   console.log('🚀 ~ SampleData ~ data:', data);
+  if (isErrorResponse(data)) {
+    return <p>Error: {data.status} - {data.message}</p>;
+  }
 
   return  (
     <>
