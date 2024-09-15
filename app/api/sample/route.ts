@@ -15,11 +15,11 @@ function getInfo(request: NextRequest): UserInfo {
 export async function GET(request: NextRequest): Promise<Response> {
   return Response.json(getInfo(request), {
     status: 200,
-    headers: {
-      'Cache-Control': 'no-store',
-      'CDN-Cache-Control': 'no-store',
-      'Vercel-CDN-Cache-Control': 'no-store'
-    },
+    // headers: {
+    //   'Cache-Control': 'no-store',
+    //   'CDN-Cache-Control': 'no-store',
+    //   'Vercel-CDN-Cache-Control': 'no-store'
+    // },
   });
 }
 
