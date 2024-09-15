@@ -17,7 +17,7 @@ module.exports = {
     'semi': ['error', 'always'],
     'quotes': ['error', 'single'],
     'indent': ['error', 2, { 'SwitchCase': 1 }],
-    'no-console': 'error',
+    'no-console': 'off',
     'camelcase': ['error', { 'properties': 'never' }],
   },
 };
