@@ -1,21 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { unauthorized } from './shared/types/httpResponse';
+import { getToken } from 'next-auth/jwt';
 
 // 認証が不要なパスのリスト
-const publicPaths = ['/login', '/register', '/api/auth'];
+const publicPaths = [
+  '/login',
+  '/terms',
+  '/privacy',
+  '/api/auth'
+];
 
 // https://ja.next-community-docs.dev/docs/app-router/building-your-application/routing/middleware
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;  
+  
   // 公開パスの場合はミドルウェアをスキップ
   if (publicPaths.some(path => pathname.startsWith(path))) {
     return NextResponse.next();
   }
 
-  // TODO: 認証状態をここで検証
-  const isAuthenticated = false;
-  if (!isAuthenticated) {
+  // 認証チェック
+  const token = await getToken({ req: request });
+  if (!token) {    
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
