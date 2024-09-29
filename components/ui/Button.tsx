@@ -11,9 +11,9 @@ const buttonStyles = cva(
         danger: 'bg-red-500 text-white focus:ring-red-500',
       },
       size: {
-        small: 'w-4 h-2',
-        medium: 'w-30 h-10',
-        large: 'w-40 h-20',
+        small: 'w-4 h-2 text-sm',
+        medium: 'w-30 h-10 text-base',
+        large: 'w-40 h-20 text-lg',
       },
     },
     defaultVariants: {
@@ -23,11 +23,18 @@ const buttonStyles = cva(
   }
 );
 
-export interface ButtonProps
-  extends VariantProps<typeof buttonStyles> { label?: string; href?: string; }
+interface ButtonProps extends VariantProps<typeof buttonStyles> {
+  label?: string;
+  ev?: React.MouseEventHandler<HTMLButtonElement>;
+}
 
-export function Button({intent, size, label='', href='/'}: ButtonProps) {
+export function Button({intent, size, ev, label='' }: ButtonProps) {
   return (
-    <a className={buttonStyles({intent, size})} href={href}>{label}</a>
+    <button
+      className={buttonStyles({intent, size})}
+      onClick={ev}
+    >
+      {label}
+    </button>
   );
 };
