@@ -18,20 +18,13 @@ const options: AuthOptions = {
   // https://next-auth.js.org/configuration/callbacks
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      console.log('signIn()', profile);
       return true;
     },
     async redirect({ url, baseUrl }) {
       return '/';
     },
     // persist the data in the token
-    async jwt({ token, account, profile }) {
-      // console.log(token, account, profile);
-      if (typeof token.iat === 'number' && typeof token.exp === 'number') {
-        console.log('jwt()', convertToLocale(token.iat));
-        console.log('jwt()', convertToLocale(token.exp));
-      }
-      
+    async jwt({ token, account, profile }) {      
       return token;
     },
     // pass the data through to the browser
