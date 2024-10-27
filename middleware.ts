@@ -21,7 +21,7 @@ export async function middleware(request: NextRequest) {
 
   // 認証チェック
   const token = await getToken({ req: request });
-  if (!token) {    
+  if (!token) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
