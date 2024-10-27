@@ -4,6 +4,10 @@ export const formatDate = (date: Date, locale: string = 'en-US'): string => {
 export const isPastDate = (date: Date): boolean => {
   return date.getTime() < new Date().getTime();
 };
+export const convertToLocale = (unixTime: number): string => {
+  return new Date(unixTime * 1000)
+    .toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+};
 
 // Generics example
 export class Utility {

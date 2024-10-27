@@ -2,8 +2,7 @@ import NextAuth, { type AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from './prisma';
-
-const convert = (unixTimeInSeconds) => new Date(unixTimeInSeconds * 1000).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+import { convertToLocale } from './shared/utils/Utils';
 
 // https://next-auth.js.org/configuration/options
 const options: AuthOptions = {
@@ -28,8 +27,10 @@ const options: AuthOptions = {
     // persist the data in the token
     async jwt({ token, account, profile }) {
       // console.log(token, account, profile);
-      console.log('jwt()', convert(token.iat));
-      console.log('jwt()', convert(token.exp));      
+      if (typeof token.iat === 'number' && typeof token.exp === 'number') {
+        console.log('jwt()', convertToLocale(token.iat));
+        console.log('jwt()', convertToLocale(token.exp));
+      }
       
       return token;
     },
