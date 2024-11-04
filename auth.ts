@@ -29,8 +29,8 @@ export const options: AuthOptions = {
     },
     // pass the data through to the browser
     async session({ session, user, token }) {
-      if (session?.user) {
-        session.user.id = token.sub;
+      if (session.user) {
+        session.user['id'] = token.sub;
       }
       return session;
     },
