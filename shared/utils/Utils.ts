@@ -9,17 +9,6 @@ export const convertToLocale = (unixTime: number): string => {
     .toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
 };
 
-// Generics example
-export class Utility {
-  static reverse<T>(items: T[]): T[] {
-    var toreturn = [];
-    for (let i = items.length - 1; i >= 0; i--) {
-      toreturn.push(items[i]);
-    }
-    return toreturn;
-  }
-}
-
 // return a Promise of any type
 export const getJSON = <T>(config: {
   url: string,
