@@ -1,9 +1,10 @@
 'use client';
+
 import { cva, VariantProps } from 'class-variance-authority';
 import React, { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { handleRedirect } from '@/app/actions/auth';
+import { handleRedirect } from '@/app/actions';
 
 const styles = cva(
   'absolute right-0 mt-2 bg-white border rounded-md shadow-lg',

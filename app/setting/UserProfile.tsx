@@ -1,4 +1,4 @@
-import { serverSession } from './actions';
+import { serverSession } from '../actions';
 import DeleteUser from './DeleteUser';
 
 export default async function UserProfile() {
