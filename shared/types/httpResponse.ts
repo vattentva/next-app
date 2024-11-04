@@ -1,10 +1,12 @@
-export interface HttpResponse {
-    message: string;
-    status: number;
+interface HttpResponse {
+  message: string;
+  status: number;
 }
-
+export interface SuccessResponse extends HttpResponse {
+  status: 200;
+}
 export interface ErrorResponse extends HttpResponse {
-    status: 400 | 401 | 403 | 404 | 500;
+  status: 400 | 401 | 403 | 404 | 500;
 }
 
 export const unauthorized: ErrorResponse = {

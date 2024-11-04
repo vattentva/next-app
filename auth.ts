@@ -5,7 +5,7 @@ import { prisma } from './prisma';
 import { convertToLocale } from './shared/utils/Utils';
 
 // https://next-auth.js.org/configuration/options
-const options: AuthOptions = {
+export const options: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   session: {
@@ -28,7 +28,10 @@ const options: AuthOptions = {
       return token;
     },
     // pass the data through to the browser
-    async session({ session, user, token }) {      
+    async session({ session, user, token }) {
+      if (session?.user) {
+        session.user.id = token.sub;
+      }
       return session;
     },
   },

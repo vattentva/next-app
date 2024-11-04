@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import React, { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { handleRedirect } from '@/shared/actions';
+import { handleRedirect } from '@/app/actions/auth';
 
 const styles = cva(
   'absolute right-0 mt-2 bg-white border rounded-md shadow-lg',
@@ -39,7 +39,7 @@ export function HeaderDropdown({ size }: HeaderDropdownProps) {
     handleRedirect('/');
   };
 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   if (!session) return null;
   const user = session!.user;
   return (
@@ -68,10 +68,7 @@ export function HeaderDropdown({ size }: HeaderDropdownProps) {
       </button>
       <div className={styles({ open: isOpen, size })}>
         <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-          <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-            設定
-          </a>
-          <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+          <a href="/setting" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
             設定
           </a>
           <button
