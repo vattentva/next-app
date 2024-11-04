@@ -3,14 +3,8 @@
 import { Button } from '@/components/ui/Button';
 import { useState } from 'react';
 import { signOut } from 'next-auth/react';
-import { DefaultSession } from 'next-auth';
 import { revalidatePath } from 'next/cache';
 
-interface UserSession extends DefaultSession {
-    user: DefaultSession['user'] & {
-        id: string
-    }
-}
 export default function DeleteUser({ user }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
