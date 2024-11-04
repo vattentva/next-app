@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <NextAuthProvider>
           <Header />
-          <div className="flex flex-1">
+          <div className="flex flex-auto">
             <Sidebar />
             <Main>
               {children}

@@ -1,6 +1,5 @@
 'use client';
 import { Button } from '@/components/ui/Button';
-import { handleRedirect } from '@/shared/actions';
 import { useEffect } from 'react';
 
 export default function Error({
@@ -18,7 +17,7 @@ export default function Error({
   return (
     <>
       <h2>Something went wrong!</h2>
-      <Button label='Back to Home' intent={'danger'} ev={()=>handleRedirect('/help')} />
+      <Button label='Back to Home' intent={'danger'} ev={()=>console.error('Back to Home')} />
     </>
   );
 }

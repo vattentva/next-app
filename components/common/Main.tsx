@@ -2,8 +2,8 @@
 
 export function Main({ children }: { children: React.ReactNode }) {
   return (
-    <main className="flex-1">
-      <div className="flex justify-center items-center min-h-screen">
+    <main className="flex-auto">
+      <div className="flex justify-center items-center p-12">
         {children}
       </div>
     </main>
